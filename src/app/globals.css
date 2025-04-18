@@ -1,26 +1,25 @@
-@import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/base";
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-primary: #5E0C07;     /* Crimson Wine */
+    --color-secondary: #973A0D;   /* Rust Ember */
+    --color-accent: #C96D03;      /* Spiced Pumpkin */
+    --color-background: #FFF1D3;  /* Vanilla Cream */
+    --color-foreground: #32371B;  /* Olive Forest */
+
+    font-size: 62.5%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+@layer utilities {
+  .translate-y-centered-offset {
+    @apply translate-y-[calc(-50%_+_var(--y))];
+  }
+  .translate-x-centered-offset {
+    @apply translate-x-[calc(-50%_+_var(--x))];
+  }
 }
